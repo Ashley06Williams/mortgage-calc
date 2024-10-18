@@ -4,19 +4,15 @@ import { useLoanItemsContext } from "@/contexts/LoanItemsContextProvider";
 import React from "react";
 
 export default function H1() {
-  const { setAmount, setTerm, setType, setInterest } = useLoanItemsContext();
-  const handleClick = () => {
-    setAmount(0);
-    setTerm(0);
-    setType("repayment");
-    setInterest(0);
-  };
+  const { resetFields } = useLoanItemsContext();
 
   return (
-    <div className="flex justify-between">
-      <h1 className="text-[20px] text-blue">Mortgage Calculator</h1>
+    <div className="flex justify-between ">
+      <h1 className="text-[20px] text-blue font-semibold">
+        Mortgage Calculator
+      </h1>
       <button
-        onClick={handleClick}
+        onClick={() => resetFields()}
         className="text-slate-500 text-[15px] underline opacity-70 hover:opacity-100"
       >
         Clear All

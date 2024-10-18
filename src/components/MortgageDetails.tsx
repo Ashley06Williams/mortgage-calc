@@ -6,7 +6,7 @@ import { lableTitleString } from "@/lib/constants";
 import React from "react";
 
 export default function MortgageDetails() {
-  const { setTerm, setInterest } = useLoanItemsContext();
+  const { setTerm, setInterest, term, interest } = useLoanItemsContext();
 
   return (
     <div className="flex space-x-10 mt-4">
@@ -14,6 +14,7 @@ export default function MortgageDetails() {
         <h3 className={lableTitleString}>Mortgage Term</h3>
         <div className="flex items-center justify-center border-2 border-grey rounded-md">
           <input
+            value={term !== null ? term : ""}
             onChange={(e) => {
               e.preventDefault();
               const numberString = e.target.value;
@@ -38,6 +39,7 @@ export default function MortgageDetails() {
               const numberString = e.target.value;
               setInterest(+numberString);
             }}
+            value={interest !== null ? interest : ""}
           />
           <div className="p-2 bg-blue-light w-10 rounded-tr-md rounded-br-md">
             %

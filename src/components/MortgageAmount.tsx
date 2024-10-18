@@ -5,7 +5,7 @@ import { lableTitleString } from "@/lib/constants";
 import React from "react";
 
 export default function MortgageAmount() {
-  const { setAmount } = useLoanItemsContext();
+  const { setAmount, amount } = useLoanItemsContext();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
@@ -30,6 +30,7 @@ export default function MortgageAmount() {
           ZAR
         </div>
         <input
+          value={amount !== null ? amount : ""}
           onChange={handleChange}
           className="bg-white w-full p-2 text-blue rounded-tr-md rounded-br-md text-[16px] font-semibold"
         />
