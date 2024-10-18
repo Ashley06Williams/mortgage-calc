@@ -1,15 +1,25 @@
+"use client";
+
+import { useLoanItemsContext } from "@/contexts/LoanItemsContextProvider";
 import { lableTitleString } from "@/lib/constants";
-import React, { Dispatch, SetStateAction } from "react";
+import React from "react";
 
-type MortgageAmountProps = {
-  setAmount: Dispatch<SetStateAction<number>>;
-};
+export default function MortgageAmount() {
+  const { setAmount } = useLoanItemsContext();
 
-export default function MortgageAmount({ setAmount }: MortgageAmountProps) {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
     const numberString = e.target.value;
-    setAmount(+numberString);
+
+    const cleanedValue = numberString.replace(/,/g, "");
+
+    const numberValue = parseFloat(cleanedValue);
+
+    if (!isNaN(numberValue)) {
+      setAmount(numberValue);
+    } else {
+      setAmount(0);
+    }
   };
 
   return (

@@ -1,11 +1,13 @@
+"use client";
+
+import { useLoanItemsContext } from "@/contexts/LoanItemsContextProvider";
 import { lableTitleString } from "@/lib/constants";
+
 import React, { Dispatch, SetStateAction } from "react";
 
-type TypeProps = {
-  setType: Dispatch<SetStateAction<string>>;
-  type: string;
-};
-export default function MortgageType({ setType, type }: TypeProps) {
+export default function MortgageType() {
+  const { setType, type } = useLoanItemsContext();
+
   const handleActive = (type: "repayment" | "interest") => {
     setType(type);
   };
@@ -22,7 +24,7 @@ export default function MortgageType({ setType, type }: TypeProps) {
             : "mt-2 border-2 border-grey rounded-md p-2 flex items-center cursor-pointer"
         }
       >
-        <button
+        <div
           className={
             type === "repayment"
               ? "border-2 border-spacing-2 border-yellow bg-white rounded-full w-4 h-4"
@@ -40,7 +42,7 @@ export default function MortgageType({ setType, type }: TypeProps) {
             : "mt-2 border-2 border-grey rounded-md p-2 flex items-center cursor-pointer"
         }
       >
-        <button
+        <div
           className={
             type === "interest"
               ? "border-2 border-spacing-2 border-yellow bg-white rounded-full w-4 h-4"

@@ -1,18 +1,10 @@
-import React, { Dispatch, SetStateAction } from "react";
+"use client";
 
-type H1Props = {
-  setAmount: Dispatch<SetStateAction<number>>;
-  setTerm: Dispatch<SetStateAction<number>>;
-  setType: Dispatch<SetStateAction<string>>;
-  setInterest: Dispatch<SetStateAction<number>>;
-};
+import { useLoanItemsContext } from "@/contexts/LoanItemsContextProvider";
+import React from "react";
 
-export default function H1({
-  setAmount,
-  setTerm,
-  setType,
-  setInterest,
-}: H1Props) {
+export default function H1() {
+  const { setAmount, setTerm, setType, setInterest } = useLoanItemsContext();
   const handleClick = () => {
     setAmount(0);
     setTerm(0);

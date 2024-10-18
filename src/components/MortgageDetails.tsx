@@ -1,15 +1,13 @@
+"use client";
+
+import { useLoanItemsContext } from "@/contexts/LoanItemsContextProvider";
 import { lableTitleString } from "@/lib/constants";
-import React, { Dispatch, SetStateAction } from "react";
 
-type MortgageDetailsProps = {
-  setTerm: Dispatch<SetStateAction<number>>;
-  setInterest: Dispatch<SetStateAction<number>>;
-};
+import React from "react";
 
-export default function MortgageDetails({
-  setTerm,
-  setInterest,
-}: MortgageDetailsProps) {
+export default function MortgageDetails() {
+  const { setTerm, setInterest } = useLoanItemsContext();
+
   return (
     <div className="flex space-x-10 mt-4">
       <div className="flex-col">
