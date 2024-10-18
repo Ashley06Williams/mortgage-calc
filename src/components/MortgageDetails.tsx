@@ -14,13 +14,13 @@ export default function MortgageDetails() {
         <h3 className={lableTitleString}>Mortgage Term</h3>
         <div className="flex items-center justify-center border-2 border-grey rounded-md">
           <input
+            type="number"
             value={term !== null ? term : ""}
             onChange={(e) => {
               e.preventDefault();
               const numberString = e.target.value;
               setTerm(+numberString);
             }}
-            type="text"
             className="bg-white w-[140px] p-2 text-blue rounded-md text-[16px] font-semibold"
           />
           <div className="p-2 bg-blue-light rounded-tr-md rounded-br-md">
@@ -32,7 +32,7 @@ export default function MortgageDetails() {
         <h3 className={lableTitleString}>Interest Rate</h3>
         <div className="flex items-center justify-center min-w-470px border-2 border-grey rounded-md">
           <input
-            type="text"
+            type="number"
             className="bg-white w-[140px] p-2 text-blue rounded-md text-[16px] font-semibold"
             onChange={(e) => {
               e.preventDefault();
