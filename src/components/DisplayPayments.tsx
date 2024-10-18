@@ -18,7 +18,7 @@ export default function DisplayPayments() {
       </div>
 
       <p className="mb-1 text-slate-300 text-[14px] mt-6">
-        Total you'll repay over the term
+        Total you&apos;ll repay over the term
       </p>
       <h3 className="text-[20px] text-white font-bold">
         R{totalRepayment !== null ? totalRepayment : ""}

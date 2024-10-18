@@ -6,7 +6,7 @@ export default function HeaderDisplay() {
       </h1>
       <p className="text-slate-400 text-[16px]">
         Your results are shown based on the information you provided. To adjust
-        results, edit the form and click "calculate repayments" again.
+        results, edit the form and click &quot;calculate repayments&quot; again.
       </p>
     </div>
   );
