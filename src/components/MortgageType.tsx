@@ -3,7 +3,7 @@
 import { useLoanItemsContext } from "@/contexts/LoanItemsContextProvider";
 import { lableTitleString } from "@/lib/constants";
 
-import React, { Dispatch, SetStateAction } from "react";
+import React from "react";
 
 export default function MortgageType() {
   const { setType, type } = useLoanItemsContext();

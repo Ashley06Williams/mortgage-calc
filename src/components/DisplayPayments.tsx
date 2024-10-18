@@ -1,7 +1,7 @@
 "use client";
 
 import { useLoanItemsContext } from "@/contexts/LoanItemsContextProvider";
-import React, { useContext } from "react";
+import React from "react";
 
 export default function DisplayPayments() {
   const { monthlyRepayment, totalRepayment } = useLoanItemsContext();
