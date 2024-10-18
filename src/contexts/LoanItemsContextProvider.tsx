@@ -1,21 +1,27 @@
 "use client";
 
+import { devNull } from "os";
 import {
   createContext,
   Dispatch,
-  ReactNode,
   SetStateAction,
   useContext,
   useState,
 } from "react";
 
 type TLoanItems = {
-  setAmount: Dispatch<SetStateAction<number>>;
+  setAmount: Dispatch<SetStateAction<number | null>>;
   setType: Dispatch<SetStateAction<string>>;
-  setTerm: Dispatch<SetStateAction<number>>;
-  setInterest: Dispatch<SetStateAction<number>>;
+  setTerm: Dispatch<SetStateAction<number | null>>;
+  setInterest: Dispatch<SetStateAction<number | null>>;
   type: string;
-  calculateRepayment: () => number;
+  monthlyRepayment: number | null;
+  totalRepayment: number | null;
+  resetFields: () => void;
+  amount: number | null;
+  term: number | null;
+  interest: number | null;
+  calculateRepayment: () => void;
 };
 
 type LoanChildren = {
@@ -25,13 +31,19 @@ type LoanChildren = {
 export const LoanItemsContext = createContext<TLoanItems | null>(null);
 
 export default function LoanItemsContextProvider({ children }: LoanChildren) {
-  const [amount, setAmount] = useState(0);
-  const [type, setType] = useState("repayment");
-  const [term, setTerm] = useState(0);
-  const [interest, setInterest] = useState(0);
+  const [amount, setAmount] = useState<number | null>(null);
+  const [type, setType] = useState<string>("repayment");
+  const [term, setTerm] = useState<number | null>(null);
+  const [interest, setInterest] = useState<number | null>(null);
   const [monthlyRepayment, setMonthlyRepayment] = useState<number | null>(null);
+  const [totalRepayment, setTotalRepayment] = useState<number | null>(null);
 
-  const calculateRepayment = (): number => {
+  const calculateRepayment = (): void => {
+    if (amount === null || term === null || interest === null) {
+      console.error("Please provide valid input values.");
+      return;
+    }
+
     const monthlyInterestRate = interest / 100 / 12;
     const numberOfPayments = term * 12;
 
@@ -46,7 +58,22 @@ export default function LoanItemsContextProvider({ children }: LoanChildren) {
     }
 
     const roundedRepayment = parseFloat(repayment.toFixed(2));
-    return roundedRepayment;
+    setMonthlyRepayment(roundedRepayment);
+
+    const total =
+      type === "repayment"
+        ? roundedRepayment * numberOfPayments
+        : amount + (amount * interest) / 100;
+    setTotalRepayment(parseFloat(total.toFixed(2)));
+  };
+
+  const resetFields = () => {
+    setAmount(null);
+    setType("repayment");
+    setTerm(null);
+    setInterest(null);
+    setMonthlyRepayment(null);
+    setTotalRepayment(null);
   };
 
   return (
@@ -58,6 +85,12 @@ export default function LoanItemsContextProvider({ children }: LoanChildren) {
         setInterest,
         type,
         calculateRepayment,
+        monthlyRepayment,
+        totalRepayment,
+        resetFields,
+        amount,
+        interest,
+        term,
       }}
     >
       {children}
