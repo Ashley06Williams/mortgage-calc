@@ -8,7 +8,7 @@ import React from "react";
 export default function MortgageDetails() {
   const { setTerm, setInterest, term, interest } = useLoanItemsContext();
 
-  const handleInterestChange = (e) => {
+  const handleInterestChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
 
     // Allow only numbers and one decimal point
@@ -43,7 +43,7 @@ export default function MortgageDetails() {
         <h3 className={lableTitleString}>Interest Rate</h3>
         <div className="flex items-center justify-center min-w-470px border-2 border-grey rounded-md">
           <input
-            type="text"
+            type="number"
             className="bg-white w-[100px] md:w-[140px] p-2 text-blue rounded-md text-[16px] font-semibold"
             onChange={handleInterestChange}
             value={interest !== null ? interest : ""}

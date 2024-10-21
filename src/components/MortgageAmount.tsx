@@ -2,7 +2,6 @@
 
 import { useLoanItemsContext } from "@/contexts/LoanItemsContextProvider";
 import { lableTitleString } from "@/lib/constants";
-import { Input } from "@nextui-org/input";
 import React from "react";
 
 export default function MortgageAmount() {
