@@ -21,7 +21,7 @@ export default function MortgageDetails() {
   };
 
   return (
-    <div className="flex space-x-8 mt-4">
+    <div className="flex space-x-6 md:space-x-10 mt-4">
       <div className="flex-col">
         <h3 className={lableTitleString}>Mortgage Term</h3>
         <div className="flex items-center justify-center border-2 border-grey rounded-md">
@@ -41,10 +41,10 @@ export default function MortgageDetails() {
       </div>
       <div>
         <h3 className={lableTitleString}>Interest Rate</h3>
-        <div className="flex items-center justify-center min-w-470px border-2 border-grey rounded-md">
+        <div className="flex items-center justify-center  border-2 border-grey rounded-md">
           <input
             type="number"
-            className="bg-white w-[100px] md:w-[140px] p-2 text-blue rounded-md text-[16px] font-semibold"
+            className="bg-white w-[80px] md:w-[140px] p-2 text-blue rounded-md text-[16px] font-semibold "
             onChange={handleInterestChange}
             value={interest !== null ? interest : ""}
           />
