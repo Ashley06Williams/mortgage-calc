@@ -1,3 +1,6 @@
+![Screenshot 2024-10-26 at 17 18 42](https://github.com/user-attachments/assets/1e70c8a8-4504-472b-bd74-0e80347ad178)
+
+
 # Ashley Williams - Mortgage Calculator Portfolio
 
 A modern, responsive portfolio showcasing my journey as a developer and my innovative mortgage calculator project.
