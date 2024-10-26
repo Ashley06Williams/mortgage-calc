@@ -21,7 +21,7 @@ export default function MortgageDetails() {
   };
 
   return (
-    <div className="flex space-x-10 mt-4">
+    <div className="flex space-x-8 mt-4">
       <div className="flex-col">
         <h3 className={lableTitleString}>Mortgage Term</h3>
         <div className="flex items-center justify-center border-2 border-grey rounded-md">
