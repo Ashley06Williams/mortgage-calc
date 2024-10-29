@@ -7,7 +7,7 @@ export default function DisplayPayments() {
   const { monthlyRepayment, totalRepayment } = useLoanItemsContext();
 
   return (
-    <div className="mt-9 w-full bg-blue-dark rounded-lg border-t-2 border-yellow h-1/2 p-4">
+    <div className="mt-9 w-full bg-blue-dark rounded-lg border-t-2 border-yellow h-1/2 p-4 mb-8">
       <div className="w-full h-1/2 border-b-[2px] border-grey border-opacity-30 flex flex-col justify-center">
         <p className="mb-1 text-slate-300 text-[14px] ">
           Your monthly repayments

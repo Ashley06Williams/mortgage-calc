@@ -32,7 +32,7 @@ export default function MortgageDetails() {
               const numberString = e.target.value;
               setTerm(+numberString);
             }}
-            className="bg-white w-[100px] md:w-[140px] p-2 text-blue rounded-md text-[16px] font-semibold"
+            className="bg-white w-[100px] md:w-[140px] p-2 text-blue rounded-md text-[16px] font-semibold outline-none"
           />
           <div className="p-2 bg-blue-light rounded-tr-md rounded-br-md">
             years
@@ -44,7 +44,7 @@ export default function MortgageDetails() {
         <div className="flex items-center justify-center  border-2 border-grey rounded-md">
           <input
             type="number"
-            className="bg-white w-[80px] md:w-[140px] p-2 text-blue rounded-md text-[16px] font-semibold "
+            className="bg-white w-[100px] md:w-[140px] p-2 text-blue rounded-md text-[16px] font-semibold outline-none"
             onChange={handleInterestChange}
             value={interest !== null ? interest : ""}
           />
